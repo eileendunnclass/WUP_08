@@ -27,6 +27,90 @@ abline(simp)
 summary.lm(simp)
 ```
 
+Adjusted r^2 = 84 this is better than the r^2 of LENGTH~NECK, this means that model LENGTH~HEADLEN is better.  
 
 ## Compare all models that predict LENGTH other than NECK. Then order them from worst to best by its value of Adjusted-Rsquared (bigger is better), or by RSE (residual standard error) where smaller is better. 
 
+## length based on age  
+
+```{r}
+ageModel <- lm(LENGTH~AGE,data=bears)
+plot(LENGTH~AGE,data=bears)
+abline(ageModel)
+summary.lm(ageModel)
+```
+
+adjusted $r^2$ for the age model is 0.51, thi sis less than the adjusted $r^2$ for neck, so this model is not as good as the neck model.  
+
+## length based on chest  
+
+
+```{r}
+chestModel <- lm(LENGTH~CHEST,data=bears)
+plot(LENGTH~CHEST,data=bears)
+abline(chestModel)
+summary.lm(chestModel)
+```
+
+adjusted r^2 = 0.79
+The adjusted r^2 for headlength is 0.84, this shows that model LENGTH~HEADLEN is better than model LENGTH~CHEST  
+
+## length based on sex  
+
+
+```{r}
+sexModel <- lm(LENGTH~SEX,data=bears)
+plot(LENGTH~SEX,data=bears)
+summary.lm(sexModel)
+```
+
+The adjusted r^2 = -0.0084 adjusted r^2 for LENGHTH~HEADLEN is better than LENGTH~SEX  
+
+## length based on headlength  
+
+
+```{r}
+headlenModel <- lm(LENGTH~HEADLEN,data=bears)
+plot(LENGTH~HEADLEN,data=bears)
+abline(headlenModel)
+summary.lm(headlenModel)
+```
+
+adjusted r^2= 53
+the adjusted r^2 for headlen is better than headwith LENGTH~HEADLEN is better than LENGTH~HEADWTH
+
+
+## length based on headwidth  
+
+
+```{r}
+heads <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(heads)
+```
+```{r}
+summary.lm(heads)
+```
+
+adjusted r^2 = 53
+the adjusted r^2 for HEADLEN is better than HEADWTH, LENGTH~HEADLEN is better than LENGTH~HEADWTH  
+
+## lentgth based on weight  
+
+
+```{r}
+weight <- lm(LENGTH~WEIGHT,data=bears)
+plot(LENGTH~WEIGHT,data=bears)
+abline(weight)
+```
+```{r}
+summary.lm(weight)
+```
+
+The adjusted r^2 = 0.74  
+the adjusted r^2 for LENGTH~HEADLEN is 0.84  
+this shows that LENGTH~HEADLEN is better the LENGTH~WEIGHT  
+
+## Conclusion  
+
+I conclusion the best model is LENGTH~HEADLEN is the best model it had the highest Adjusted r^2 which was 0.84 and all other models had lower scores.  
